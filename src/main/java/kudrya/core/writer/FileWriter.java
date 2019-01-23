@@ -1,6 +1,8 @@
 package kudrya.core.writer;
 
 import kudrya.core.Student;
+import kudrya.design.controllers.AddController;
+import org.apache.log4j.Logger;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -9,6 +11,7 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 
 public class FileWriter implements Writer {
+    final static Logger logger = Logger.getLogger(FileWriter.class);
     private String path;
     private List<Student> students;
 
@@ -23,15 +26,16 @@ public class FileWriter implements Writer {
         try {
             fileOut = new FileOutputStream(path);
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            logger.warn("File " + path + " not found");
         }
         try {
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
             objectOut.writeObject(students);
             objectOut.close();
-
         } catch (IOException e) {
             e.printStackTrace();
+            logger.error("Error in writing object to" + path);
+            logger.error(e);
         }
     }
 }
