@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="482.0" prefWidth="601.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kudrya.design.controllers.StartController">
+   <children>
+      <ImageView fitHeight="25.0" fitWidth="79.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#clickAdd" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <image>
+            <Image url="@../images/add.gif" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <TextField fx:id="textSearch" layoutX="54.0" layoutY="14.0" prefHeight="25.0" prefWidth="427.0" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="14.0" />
+      <ImageView fitHeight="25.0" fitWidth="79.0" layoutX="489.0" layoutY="14.0" onMouseClicked="#clickSearch" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="14.0">
+         <image>
+            <Image url="@../images/search.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="79.0" layoutX="522.0" layoutY="14.0" onMouseClicked="#clickExcel" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <image>
+            <Image url="@../images/excel.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="table" layoutY="52.0" prefHeight="434.0" prefWidth="561.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="52.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Name" />
+          <TableColumn prefWidth="75.0" text="Surname" />
+            <TableColumn prefWidth="75.0" text="Birthday" />
+            <TableColumn prefWidth="75.0" text="Phone" />
+            <TableColumn prefWidth="75.0" text="Address" />
+            <TableColumn prefWidth="75.0" text="Cource" />
+            <TableColumn prefWidth="75.0" text="Group" />
+            <TableColumn prefWidth="75.0" text="Facultet" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
