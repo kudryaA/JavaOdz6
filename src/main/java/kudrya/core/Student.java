@@ -9,11 +9,11 @@ public class Student implements Serializable {
     private Date birthday;
     private String phone;
     private String address;
-    private int course;
+    private String course;
     private String group;
     private String facultet;
 
-    public Student(String name, String surname, Date birthday, String phone, String address, int course, String group, String facultet) {
+    public Student(String name, String surname, Date birthday, String phone, String address, String course, String group, String facultet) {
         this.name = name;
         this.surname = surname;
         this.birthday = birthday;
@@ -49,7 +49,7 @@ public class Student implements Serializable {
         return address;
     }
 
-    public int getCourse() {
+    public String getCourse() {
         return course;
     }
 
