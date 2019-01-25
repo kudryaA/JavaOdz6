@@ -1,14 +1,20 @@
 package kudrya.design.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import kudrya.CONSTANTS;
+import kudrya.Main;
 import kudrya.core.FileReaderStudents;
 import kudrya.core.Student;
 import kudrya.core.writer.FileWriter;
 import kudrya.design.Message;
 import org.apache.log4j.Logger;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -36,7 +42,7 @@ public class AddController {
         return !res;
     }
 
-    public void clickAdd(ActionEvent actionEvent) {
+    public void clickAdd(ActionEvent actionEvent) throws IOException {
         boolean status = true;
         String name = textFieldName.getText();
         status = status && check("name", name);
@@ -62,6 +68,12 @@ public class AddController {
         String fac = textFieldFacultet.getText();
         status = status && check("faculter", fac);
         if (status) {
+            Stage primaryStage = new Stage();
+            Parent root = FXMLLoader.load(Main.class.getResource("/fxml/start.fxml"));
+            primaryStage.setResizable(false);
+            primaryStage.setScene(new Scene(root));
+            primaryStage.show();
+            ((Stage)textFieldAddress.getScene().getWindow()).close();
             List<Student> buf = new FileReaderStudents(CONSTANTS.DATABASE.name()).get();
             buf.add(new Student(name, surname, birthday, phone, address, course, group, fac));
             new FileWriter(CONSTANTS.DATABASE.name(), buf).write();

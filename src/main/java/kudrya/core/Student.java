@@ -24,6 +24,9 @@ public class Student implements Serializable {
         this.facultet = facultet;
     }
 
+    public Student() {
+    }
+
     @Override
     public String toString() {
         return name + ' ' + surname + ' ' + group;
@@ -59,5 +62,37 @@ public class Student implements Serializable {
 
     public String getFacultet() {
         return facultet;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    public void setFacultet(String facultet) {
+        this.facultet = facultet;
     }
 }

@@ -23,7 +23,7 @@ public class FileReaderStudents implements ReaderStudents {
         try {
             fileInputStream = new FileInputStream(path);
         } catch (FileNotFoundException e) {
-            logger.error("Error in writing object to" + path);
+            logger.error("Error in reading object to" + path);
         }
         BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
         ObjectInputStream objectInputStream = null;
