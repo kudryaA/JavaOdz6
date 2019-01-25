@@ -12,6 +12,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import kudrya.CONSTANTS;
 import kudrya.Main;
@@ -22,7 +23,10 @@ import kudrya.core.filters.ReaderCourseStudents;
 import kudrya.core.filters.ReaderDateStudents;
 import kudrya.core.filters.ReaderFacultetStudents;
 import kudrya.core.filters.ReaderGroupStudents;
+import kudrya.core.report.ExcelReport;
+import kudrya.design.Message;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
@@ -82,6 +86,11 @@ public class StartController implements Initializable {
     }
 
     public void clickExcel(MouseEvent mouseEvent) {
+        FileChooser fileChooser = new FileChooser();
+        File selectedFile = fileChooser.showSaveDialog(null);
+        new ExcelReport(selectedFile.getAbsolutePath(), readerStudents.get()).save();
+        Message message = new Message("Success", "Success saving", "Success saving Excel");
+        message.show();
     }
 
     @Override

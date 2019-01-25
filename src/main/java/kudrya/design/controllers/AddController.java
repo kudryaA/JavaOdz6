@@ -68,15 +68,15 @@ public class AddController {
         String fac = textFieldFacultet.getText();
         status = status && check("faculter", fac);
         if (status) {
+            List<Student> buf = new FileReaderStudents(CONSTANTS.DATABASE.name()).get();
+            buf.add(new Student(name, surname, birthday, phone, address, course, group, fac));
+            new FileWriter(CONSTANTS.DATABASE.name(), buf).write();
             Stage primaryStage = new Stage();
             Parent root = FXMLLoader.load(Main.class.getResource("/fxml/start.fxml"));
             primaryStage.setResizable(false);
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
             ((Stage)textFieldAddress.getScene().getWindow()).close();
-            List<Student> buf = new FileReaderStudents(CONSTANTS.DATABASE.name()).get();
-            buf.add(new Student(name, surname, birthday, phone, address, course, group, fac));
-            new FileWriter(CONSTANTS.DATABASE.name(), buf).write();
         }
     }
 }
