@@ -32,7 +32,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>libs/</classpathPrefix>
-                            <mainClass>controller.Server</mainClass>
+                            <mainClass>kudrya.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
